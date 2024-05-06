@@ -36,7 +36,7 @@ const information = {
   4: (
     <InfoBox
       title="Let's build amazing React applications together!"
-      link="/about"
+      link="/contact"
       buttonText="Let's talk"
     />
   ),
