@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import Loading from "../components/Loading";
 import { Fox } from "../models/Fox";
+import Alert from "../components/Alert";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -12,6 +13,7 @@ const Contact = () => {
     email: "",
     comment: "",
   });
+  const [alert, setAlert] = useState({ type: "", text: "" });
 
   const handleFocus = () => {
     setCurrentAnimation("walk");
@@ -25,6 +27,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     setCurrentAnimation("hit");
+    setAlert({ text: "", type: "" });
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -42,15 +45,23 @@ const Contact = () => {
         setLoading(false);
         setFormValue({ comment: "", email: "", name: "" });
         setCurrentAnimation("idle");
+        setAlert({ text: "Email sent successfully", type: "success" });
       })
       .catch(() => {
         setLoading(false);
         setCurrentAnimation("idle");
+        setAlert({ text: "Something went wrong", type: "error" });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setAlert({ text: "", type: "" });
+        }, 3000);
       });
   };
 
   return (
     <section className="relative max-container flex lg:flex-row flex-col">
+      {alert.type && <Alert type={alert.type} text={alert.text} />}
       <div className="min-w-[50%] flex-1 flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
         <form
