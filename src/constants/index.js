@@ -181,7 +181,7 @@ export const projects = [
     theme: "btn-back-green",
     name: "Auth Application",
     description:
-      'built own auth toolkit using the newest Next Auth v5 (Auth.js) with Two Factor Authentication (2FA), Forgot Password functionality, Email Verification functionality, Credential Login, OAuth (Google & Github) Login and much more.',
+      'Built own auth toolkit using the newest Next Auth v5 (Auth.js) with Two Factor Authentication (2FA), Forgot Password functionality, Email Verification functionality, Credential Login, OAuth (Google & Github) Login and much more.',
     link: "https://github.com/mynameisharsh/next-auth",
   },
   {

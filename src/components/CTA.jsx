@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const CTA = () => {
   return (
     <div className="pt-10">
-      <div className="flex flex-row max-sm:flex-col justify-between items-center">
-        <div className="flex flex-col">
+      <div className="flex flex-row max-sm:flex-col justify-between items-center gap-8">
+        <div className="flex flex-col gap-2">
           <p className="text-3xl font-bold">Have a project in Mind?</p>
           <p className="text-3xl font-bold">Let's build something together!</p>
         </div>

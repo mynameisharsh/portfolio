@@ -43,7 +43,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="py-10">
+      <div className="py-10">+
         <h3 className="subhead-text">Work Experience</h3>
         <p className="mt-5 text-slate-500">
           Extensive experience in frontend development, delivering
@@ -83,8 +83,8 @@ const About = () => {
                   {experience.company_name}
                 </h4>
                 <ul className="my-5 list-disc ml-5 space-y-2">
-                  {experience.points.map((point) => (
-                    <li className="text-black-500/50 font-normal pl-1 text-small">
+                  {experience.points.map((point, index) => (
+                    <li key={`experience-${index}`} className="text-black-500/50 font-normal pl-1 text-small">
                       {point}
                     </li>
                   ))}
