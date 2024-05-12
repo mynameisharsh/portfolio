@@ -1,15 +1,33 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Loading from "../components/Loading";
 import { Island } from "../models/island";
 import Sky from "../models/Sky";
 import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomePagePopupInfo from "../components/HomePagePopupInfo";
+import sakuna from "../assets/sakura.mp3";
+import { soundoff, soundon } from "../assets/icons";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+
+  const audioRef = useRef(new Audio(sakuna));
+
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+  useEffect(() => {
+    if (isAudioPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+
+    () => {
+      audioRef.current.pause();
+    };
+  }, [isAudioPlaying]);
 
   const adjustSize = () => {
     let screenScale = null;
@@ -59,14 +77,14 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
+          <Bird />
+          <Sky isRotating={isRotating} />
           <Plane
             scale={planeScale}
             position={planePosition}
             isRotating={isRotating}
             rotation={[0, 20, 0]}
           />
-          <Bird />
-          <Sky isRotating={isRotating} />
           <Island
             scale={islandScale}
             position={islandPosition}
@@ -77,6 +95,15 @@ const Home = () => {
           />
         </Suspense>
       </Canvas>
+
+      <div className="absolute bottom-4 left-4">
+        <img
+          src={isAudioPlaying ? soundon : soundoff}
+          onClick={() => setIsAudioPlaying((prev) => !prev)}
+          className="cursor-pointer h-10 w-10 object-contain"
+          alt="Audio"
+        />
+      </div>
     </section>
   );
 };

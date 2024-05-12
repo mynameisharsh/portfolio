@@ -16,16 +16,16 @@ import tailwindcss from './tailwindcss.svg'
 import typescript from './typescript.svg'
 import linkedin from './linkedin.svg'
 import twitter from './twitter.svg'
-import car from './car.svg'
-import estate from './estate.svg'
-import pricewise from './pricewise.svg'
-import snapgram from './snapgram.svg'
-import summiz from './summiz.svg'
-import threads from './threads.svg'
 import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import chakraui from './chakraui.svg'
+import antdesign from './antdesign.svg'
+import webflow from './webflow.svg'
+import zoom from './zoom.svg'
+import auth from './auth.svg'
+import risk from './risk.svg'
 
 export {
     css,
@@ -46,14 +46,14 @@ export {
     typescript,
     linkedin,
     twitter,
-    car,
-    estate,
-    pricewise,
-    snapgram,
-    summiz,
-    threads,
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    chakraui,
+    antdesign,
+    webflow,
+    zoom,
+    auth,
+    risk
 }
